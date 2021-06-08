@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Shopping</title>
+
+
+    <!-- Google Fonts -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Sacramento&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favicon.ico">
+
+    <script src="https://checkout.stripe.com/checkout.js" defer></script>
+            <script>
+                var stripePublicKey = '<%= stripePublicKey %>'
+            </script>
+            <!-- <script src="store.js" defer></script> -->
+
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </head>
+
+
+  <body>
+    <section  id = "title">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+      <div class="brand">
+
+        <img class="brandpic" src="images/brandpic.jpg" alt="brandpic" >
+        <a class="navbar-brand" href="">Natura</a>
+     </div>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#footer">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pricing">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cta">Download</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cart"> <i class="fas fa-shopping-cart"></i><span class="cartCount"> 0 </span></a>
+          </li>
+        </ul>
+
+    </div>
+  </nav>
+
+
+
+<h1 class="big-heading">Natura products....  A real blend of Nature !!</h1>
+    <!-- <h2>Shop Now!</h2> -->
+    <div class="row">
+
+    <img class="Shopping_img col-lg-2 col-md-4 col-sm-6" src="images/healing-herbs.jpg" alt="skin-profile">
+    <img class="Shopping_img col-lg-2 col-md-4 col-sm-6" src="images/titleimg1.jpg" alt="skin-profile">
+    <img class="Shopping_img col-lg-2 col-md-4 col-sm-6" src="images/lavenderoil.jpg" alt="skin-profile">
+    <img class="Shopping_img col-lg-2 col-md-4 col-sm-6" src="images/pills1.jpg" alt="skin-profile">
+    <img class="Shopping_img col-lg-2 col-md-4 col-sm-6" src="images/med in box.jpg" alt="skin-profile">
+    <img class="Shopping_img col-lg-2 col-md-4 col-sm-6" src="images/syrup.jpg" alt="skin-profile">
+
+  </div>
+</section>
+
+
+<!-- Shopping section -->
+<!-- <section> -->
+
+    <section  id="pricing">
+
+
+    <div class="row">
+
+     <div class="shop-section">
+       <h2 class="section-heading">Shop now!</h2>
+       <!-- <h3>No.1 products at affordable price .</h3> -->
+       <p class="shop-para"><i class="icon fab fa-pagelines "></i>"Find the finest products at affordable price"<i class="icon fab fa-pagelines"></i></p>
+
+     </div>
+
+
+<!-- Dropdown menu -->
+
+<aside class="">
+  <div class="dropdown">
+  <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Shop
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#external">External Use</a>
+    <a class="dropdown-item" href="#internal">Internal medicines</a>
+    <a class="dropdown-item" href="#">Main Menu</a>
+  </div>
+</div>
+</aside>
+</div>
+<!-- </section> -->
+
+<!-- External -->
+<section id="external">
+
+      <div class="row">
+
+        <% items.external.forEach(function(item){ %>
+
+                <div class="pricing-column col-lg-4 col-md-6">
+                  <div class="card" data-item-id= "<%= item.id %>" >
+                    <div class="card-header">
+                      <h4 class="product_title"><%= item.name %> </h4>
+                    </div>
+                    <div class="card-body">
+                        <img class="product_img" src="images/<%= item.imgName %>" alt="Natura face wash for glowing face 100 ml bottle with herbs in rosewater and honey">
+                      <p class="product_price">$<%= item.price / 100 %></p>
+                      <button  class="btn btn-sm btn-block btn-success cartBtn" type="submit"> Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+            <%  }); %>
+
+
+
+        <!-- <div class="pricing-column col-lg-4 col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="product_title">Natura Herbal serum</h4>
+            </div>
+            <div class="card-body">
+              <img class="product_img" src="images/titleimg1.jpg" alt="skin-profile">
+              <p class="product_price">$16.99</p>
+                <p>⭐⭐⭐⭐☆  (345)</p>
+              <p></p>
+              <p>Natura hair serum 100 ml Pack with honey rosemary and tea tree oil</p>
+              <button  class="btn btn-sm btn-block btn-success cartBtn" type="submit"> Add to Cart</button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-column col-lg-4 col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="product_title">Natura Lavender Oil</h4>
+            </div>
+            <div class="card-body">
+              <img class="product_img" src="images/lavenderoil.jpg" alt="skin-profile">
+              <p class="product_price">$23.49</p>
+                <p>⭐⭐⭐⭐☆  (345)</p>
+              <p></p>
+              <p>Natura lavender hair serum 100 ml Pack with natural  lavender oil</p>
+              <button  class="btn btn-sm btn-block btn-success cartBtn" type="submit"> Add to Cart</button>
+
+            </div>
+          </div>
+        </div>
+
+      <div class="pricing-column col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="product_title">Natura Acne serum</h4>
+          </div>
+          <div class="card-body">
+            <img class="product_img" src="images/syrup.jpg" alt="skin-profile">
+            <p class="product_price">$12.99</p>
+              <p>⭐⭐⭐⭐☆  (55)</p>
+            <p></p>
+            <p>Natura acne serum 100 ml Pack with honey, rosemary and tea tree oil</p>
+            <button  class="btn btn-sm btn-block btn-success cartBtn" type="submit"> Add to Cart</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-column col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="product_title">Natura Herbal hair Mask</h4>
+          </div>
+          <div class="card-body">
+            <img class="product_img" src="images/med in box.jpg" alt="skin-profile">
+            <p class="product_price">$10.99</p>
+              <p>⭐⭐⭐⭐☆  (45)</p>
+            <p></p>
+            <p>Natura hair mask 100 gm Pack with spices and tea tree oil </p>
+            <button  class="btn btn-sm btn-block btn-success cartBtn" type="submit"> Add to Cart</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-column col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="product_title">Natura Mint Oil </h4>
+          </div>
+          <div class="card-body">
+            <img class="product_img" src="images/mint oil.jpg" alt="skin-profile">
+            <p class="product_price">$29.99</p>
+            <p>⭐⭐⭐⭐⭐ (545)</p>
+
+            <p>Natura hair serum 100 ml Pack with extract of mint oil</p>
+            <button  class="btn btn-sm btn-block btn-success cartBtn" type="submit"> Add to Cart</button>
+
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+</section>
+
+<!-- Internal Medicines -->
+<section id="internal">
+
+    <div class="row">
+
+      <% items.internal.forEach(function(item){ %>
+
+              <div class="pricing-column col-lg-4 col-md-6">
+                <div class="card" data-item-id= "<%= item.id %>">
+                  <div class="card-header">
+                    <h4 class="product_title"><%= item.name %> </h4>
+                  </div>
+                  <div class="card-body">
+                      <img class="product_img" src="images/<%= item.imgName %>" alt="Natura face wash for glowing face 100 ml bottle with herbs in rosewater and honey">
+                    <p class="product_price">$<%= item.price / 100 %></p>
+                    <button  class="btn btn-sm btn-block btn-success cartBtn" type="submit"> Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+          <%  }); %>
+
+
+
+<!--
+      <div class="pricing-column col-lg-4 col-md-6 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="product_title">Natura LivoCapsules </h4>
+          </div>
+          <div class="card-body">
+              <img class="product_img" src="images/pills2.jpg" alt="skin-profile">
+            <p class="product_price">$20.59</p>
+            <p>⭐⭐⭐⭐☆  (35)</p>
+            <p> Natura LivoCapsules for rejuvenating your liver cells 100 capsules. </p>
+            <button  class="btn btn-sm btn-block btn-success cartBtn" type="submit"> Add to Cart</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-column col-lg-4 col-md-6 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="product_title">Natura OrthoHeal </h4>
+          </div>
+          <div class="card-body">
+              <img class="product_img" src="images/pills1.jpg" alt="skin-profile">
+            <p class="product_price">$20.59</p>
+            <p>⭐⭐⭐⭐☆  (35)</p>
+            <p> Natura OrthoHeal Tablets for relief from joint pain. A pack of 100 tabs.300g</p>
+            <button  class="btn btn-sm btn-block btn-success cartBtn" type="submit"> Add to Cart</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-column col-lg-4 col-md-6 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="product_title">Natura Cough syrup  </h4>
+          </div>
+          <div class="card-body">
+              <img class="product_img" src="images/cough syrup.jpg" alt="skin-profile">
+            <p class="product_price">$10.59</p>
+            <p>⭐⭐⭐⭐☆  (35)</p>
+            <p> Natura Cough syrup 100 ml bottle with herbs Tulsi and honey</p>
+            <button  class="btn btn-sm btn-block btn-success cartBtn" type="submit"> Add to Cart</button>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+
+  </section>
+
+</section>
+<!-- end of shopping section -->
+
+<!-- Call to Action -->
+
+<section  id="cta">
+
+<div class="container-fluid">
+
+  <h3 class="big-heading">Find the exotic touch of nature!!!</h3>
+  <button class="download-button btn btn-lg btn-success" type="button"><i class="fab fa-apple"></i> Download</button>
+  <button class="download-button btn btn-lg btn-outline-dark" type="button"><i class="fab fa-google-play"></i> Download</button>
+</div>
+</section>
+
+<!-- cart section -->
+<section id="cart">
+  <div class="cart">
+
+
+           <h2 class="section-header">CART</h2>
+           <div class="cart-row">
+               <h4 class="cart-item cart-header cart-column col-lg-4 col-md-4 col-sm-4">ITEM</h4>
+               <h4 class="cart-item-price cart-header cart-column col-lg-4 col-md-4 col-sm-4">PRICE</h4>
+               <h4 class="cart-quantity cart-header cart-column col-lg-4 col-md-4 col-sm-4">QUANTITY</h4>
+           </div>
+           <div class="cart-items">
+
+           <!-- <div class="cart-item cart-column col-lg-4 col-md-4 col-sm-4">
+               <img class="cart-item-image" src="${product_imgsrc}" width="100" height="100">
+               <span class="cart-item-title">${product_title}</span>
+           </div>
+           <span class="cart-price cart-column col-lg-4 col-md-4 col-sm-4">${product_price}</span>
+           <div class="cart-quantity cart-column col-lg-4 col-md-4 col-sm-4">
+               <input class="cart-input" type="number" value="1">
+               <button class="btn btn-danger" type="button">REMOVE</button>
+           </div> -->
+           </div>
+           <div class="cart-total">
+               <strong class="cart-total-title">Total</strong>
+               <span id="cartTotalPrice" class="cart-total-price" >$0</span>
+           </div>
+           <button class="btn btn-success btn-buynow" type="submit">BUY NOW</button>
+           </div>
+       </section>
+
+
+<!-- Footer -->
+<footer  id="footer">
+  <div class="container-fluid">
+    <i class="social-icon fab fa-facebook-f"></i>
+    <i class="social-icon fab fa-twitter"></i>
+    <i class="social-icon fab fa-instagram"></i>
+    <i class="social-icon fas fa-envelope"></i>
+
+    <p>© Copyright 2021 Natura</p>
+  </div>
+</footer>
+
+<script src="shop.js" defer></script>
+  </body>
+</html>

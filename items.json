@@ -1,0 +1,58 @@
+{
+  "external": [
+    {
+      "id": 1,
+      "name": "Natura face wash",
+      "price": 2059,
+      "imgName": "bottles.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Natura Herbal serum",
+      "price": 1699,
+      "imgName": "titleimg1.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Natura Lavender Oil",
+      "price": 2349,
+      "imgName": "lavenderoil.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Natura Acne serum",
+      "price": 1299,
+      "imgName": "syrup.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Natura Herbal hair Mask",
+      "price": 1099,
+      "imgName": "med in box.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Natura Mint Oil",
+      "price": 2999,
+      "imgName": "mint oil.jpg"
+    } ],
+    "internal": [
+    {
+      "id": 7,
+      "name": "Natura LivoCapsules",
+      "price": 2059,
+      "imgName": "pills2.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Natura OrthoHeal",
+      "price": 2059,
+      "imgName": "pills1.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Natura Cough syrup",
+      "price": 1059,
+      "imgName": "cough syrup.jpg"
+    }
+  ] }
